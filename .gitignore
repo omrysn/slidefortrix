@@ -138,4 +138,4 @@ fabric.properties
 .nfs*
 
 # remove strings.xml
-/home/unknown/Documents/AndroidStudioProjects/SlideforTrix/app/src/main/res/values/strings.xml
+app/src/main/res/values/strings.xml
