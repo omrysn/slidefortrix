@@ -110,4 +110,32 @@
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <TextView
+        android:id="@+id/trixName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:padding="2dp"
+        android:text="@string/trixname"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/trixFlow"
+        app:layout_constraintEnd_toStartOf="@+id/trixFlow"
+        app:layout_constraintTop_toBottomOf="@+id/trixFlow" />
+
+    <TextView
+        android:id="@+id/complexName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:padding="2dp"
+        android:text="@string/complexname"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/complexFlow"
+        app:layout_constraintEnd_toStartOf="@+id/complexFlow"
+        app:layout_constraintTop_toBottomOf="@+id/complexFlow" />
+
 </android.support.constraint.ConstraintLayout>
