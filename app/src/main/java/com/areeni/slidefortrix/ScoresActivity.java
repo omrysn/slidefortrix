@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class ScoresActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -34,10 +36,15 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
     SharedPreferences prefs = null;
 
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         prefs = getSharedPreferences("com.areeni.slidefortrix", MODE_PRIVATE);
 
@@ -94,6 +101,8 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             mfloat.startAnimation(rotate_backward);
             cfloat.startAnimation(fab_close);
             tfloat.startAnimation(fab_close);
+            trixname.startAnimation(fab_close);
+            complexname.startAnimation(fab_close);
             cfloat.setVisibility(View.GONE);
             tfloat.setVisibility(View.GONE);
             trixname.setVisibility(View.GONE);
@@ -106,8 +115,8 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             tfloat.setVisibility(View.VISIBLE);
             trixname.setVisibility(View.VISIBLE);
             complexname.setVisibility(View.VISIBLE);
-            trixname.startAnimation(leftToright);
-            complexname.startAnimation(leftToright);
+            trixname.startAnimation(fab_open);
+            complexname.startAnimation(fab_open);
             cfloat.startAnimation(fab_open);
             tfloat.startAnimation(fab_open);
             cfloat.setClickable(true);
