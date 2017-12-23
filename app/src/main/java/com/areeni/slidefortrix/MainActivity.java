@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MobileAds.initialize(this, getResources().getString(R.string.AppID));
+        MobileAds.initialize(this, getResources().getString(R.string.AppIdTest));
 //
 //        mAdView = findViewById(R.id.adView);
 //        AdRequest adRequest = new AdRequest.Builder().build();
