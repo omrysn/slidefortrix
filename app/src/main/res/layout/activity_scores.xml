@@ -41,7 +41,7 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_complex_24dp" />
+        app:srcCompat="@drawable/ic_hearts" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/mFlow"
@@ -53,7 +53,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_white_24dp" />
+        app:srcCompat="@drawable/ic_add_24dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/trixFlow"
@@ -66,14 +66,14 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/complexFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_trix_24dp" />
+        app:srcCompat="@drawable/ic_trix" />
 
     <LinearLayout
         android:id="@+id/ScoresList"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -149,10 +149,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/BannerIdTest"
+        ads:adUnitId="@string/BannerID"
         ads:layout_constraintBottom_toTopOf="@+id/textView"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
+        ads:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
