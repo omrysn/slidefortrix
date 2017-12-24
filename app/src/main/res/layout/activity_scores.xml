@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/anton"
         android:text="@string/team1"
         android:textSize="18sp"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/anton"
         android:text="@string/team2"
         android:textSize="18sp"
@@ -47,7 +47,7 @@
         android:id="@+id/mFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="48dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
         app:fabSize="normal"
@@ -71,14 +71,15 @@
     <LinearLayout
         android:id="@+id/ScoresList"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/team1Total"
@@ -86,11 +87,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/anton"
         android:minEms="3"
         android:text="@string/zero"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -101,11 +103,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/anton"
         android:minEms="3"
         android:text="@string/zero"
-        android:textAlignment="center"
+        android:textAlignment="textEnd"
         android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -146,13 +149,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/BannerIdTest"
-        ads:layout_constraintBottom_toTopOf="@+id/textView"
+        ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
-        ads:layout_constraintTop_toTopOf="parent" />
+        ads:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

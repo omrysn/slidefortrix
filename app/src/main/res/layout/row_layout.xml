@@ -15,6 +15,7 @@
         android:minEms="2"
         android:text="@string/zero"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:minEms="2"
         android:text="@string/zero"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/team2Score"
         app:layout_constraintStart_toEndOf="@+id/team1Score"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +43,7 @@
         android:minEms="2"
         android:text="@string/zero"
         android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

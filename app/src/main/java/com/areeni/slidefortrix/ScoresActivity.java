@@ -1,8 +1,11 @@
 package com.areeni.slidefortrix;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,7 +83,29 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
         switch (id){
             case R.id.mFlow:
-                animateFAB();
+                if(counter < 8){
+
+                    animateFAB();
+                }
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("New Game?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(ScoresActivity.this,ScoresActivity.class));
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                   finish();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+
                 break;
             case R.id.complexFlow:
                 Intent intent1 = new Intent(this,ComplexActivity.class);
@@ -196,7 +221,6 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case 11:
                 Toast.makeText(this, "Game Over!", Toast.LENGTH_SHORT).show();
-//                todo: diable buttons for new game
                 break;
         }
 
