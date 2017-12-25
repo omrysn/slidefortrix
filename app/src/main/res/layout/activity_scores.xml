@@ -72,7 +72,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
         app:layout_constraintEnd_toEndOf="@+id/team2"
@@ -153,5 +153,33 @@
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/ufloat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:visibility="gone"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/trixFlow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_undo_24dp" />
+
+    <TextView
+        android:id="@+id/undo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:padding="2dp"
+        android:text="@string/undo"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/ufloat"
+        app:layout_constraintEnd_toStartOf="@+id/ufloat"
+        app:layout_constraintTop_toBottomOf="@+id/ufloat"
+        app:layout_constraintVertical_bias="0.507" />
 
 </android.support.constraint.ConstraintLayout>
