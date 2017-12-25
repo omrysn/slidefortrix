@@ -34,14 +34,13 @@
         android:id="@+id/TrixImage"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/adView"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.100000024"
+        app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/ic_trix" />
 
     <SeekBar
@@ -66,26 +65,26 @@
         android:id="@+id/team1T"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="48dp"
         android:minEms="2"
         android:text="@string/zero"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/TrixImage" />
 
     <TextView
         android:id="@+id/team2T"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:minEms="2"
         android:text="@string/zero"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/team1T"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/team1T" />
 
     <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"

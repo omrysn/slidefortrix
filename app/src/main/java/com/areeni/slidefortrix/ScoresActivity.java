@@ -19,7 +19,6 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import org.w3c.dom.Text;
 
 public class ScoresActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -257,3 +256,4 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 }
+//todo: add a way to remove last entry from scores and decrease the counter by 1
