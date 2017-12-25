@@ -1,6 +1,5 @@
 package com.areeni.slidefortrix;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +18,8 @@ import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import org.w3c.dom.Text;
 
 public class ScoresActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -44,6 +45,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
+
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -89,15 +91,15 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("New Game?")
+                    builder.setMessage(R.string.newgame)
                             .setCancelable(false)
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     startActivity(new Intent(ScoresActivity.this,ScoresActivity.class));
                                     finish();
                                 }
                             })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                    finish();
                                 }

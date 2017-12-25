@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Slide for Trix</string>
+    <string name="trixname">تركس</string>
+    <string name="team2">الاعداء</string>
+    <string name="team1">فريقي</string>
+    <string name="newgame">لعبة جديدة</string>
+    <string name="doubled">دبلت بنجاح</string>
+    <string name="complexname">كومبلكس</string>
+    <string name="about">عن..</string>
+    <string name="language">اللغة</string>
+    <string name="chooseLanguage">اختر اللغة</string>
+    <string name="english">انجليزي</string>
+    <string name="arabic">عربي</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+</resources>

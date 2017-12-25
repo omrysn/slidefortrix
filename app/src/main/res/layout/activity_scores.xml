@@ -7,7 +7,7 @@
     tools:context="com.areeni.slidefortrix.ScoresActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/team1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/team2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -76,9 +76,9 @@
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/team2"
+        app:layout_constraintStart_toStartOf="@+id/team1"
+        app:layout_constraintTop_toBottomOf="@+id/team1"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -93,9 +93,9 @@
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintBottom_toTopOf="@+id/team1"
+        app:layout_constraintStart_toEndOf="@+id/team1"
+        app:layout_constraintTop_toBottomOf="@+id/team1" />
 
     <TextView
         android:id="@+id/team2Total"
@@ -109,9 +109,9 @@
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintBottom_toTopOf="@+id/team2"
+        app:layout_constraintEnd_toStartOf="@+id/team2"
+        app:layout_constraintTop_toBottomOf="@+id/team2" />
 
     <TextView
         android:id="@+id/trixName"
