@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.areeni.slidefortrix.ScoresActivity">
 
+
     <TextView
         android:id="@+id/team1"
         android:layout_width="wrap_content"
@@ -181,5 +182,32 @@
         app:layout_constraintEnd_toStartOf="@+id/ufloat"
         app:layout_constraintTop_toBottomOf="@+id/ufloat"
         app:layout_constraintVertical_bias="0.507" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/nfloat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:visibility="gone"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/ufloat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add_red_24dp" />
+
+    <TextView
+        android:id="@+id/newGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:padding="2dp"
+        android:text="@string/newgame"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/nfloat"
+        app:layout_constraintEnd_toStartOf="@+id/nfloat"
+        app:layout_constraintTop_toBottomOf="@+id/nfloat" />
 
 </android.support.constraint.ConstraintLayout>

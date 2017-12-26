@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ysn.myapplication.MainActivity">
+
+
+    <item
+        android:id="@+id/newGame"
+        android:orderInCategory="100"
+        android:title="@string/newgame"
+        app:showAsAction="never"
+        android:textDirection="locale"
+        android:textAlignment="gravity"/>
+
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="300"
+        android:title="@string/about"
+        app:showAsAction="never"
+        android:textDirection="locale"
+        android:textAlignment="gravity"/>
+</menu>

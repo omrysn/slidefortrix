@@ -1,10 +1,9 @@
 package com.areeni.slidefortrix;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +13,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.ads.AdRequest;
@@ -27,7 +25,7 @@ import java.util.List;
 public class ScoresActivity extends AppCompatActivity implements View.OnClickListener{
 
     private boolean isFabOpen = false;
-    private FloatingActionButton mfloat, cfloat, tfloat,ufloat;
+    private FloatingActionButton mfloat, cfloat, tfloat,ufloat,nfloat;
     private Animation fab_open,fab_close, rotate_forward,rotate_backward,leftToright,rightToleft;
 
 
@@ -41,7 +39,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
     private int curruntScore =0;
 
     private int counter =0;
-    private TextView t2Total,t1Total,trixname,complexname,undo;
+    private TextView t2Total,t1Total,trixname,complexname,undo,newgame;
 
     SharedPreferences prefs = null;
 
@@ -66,6 +64,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         cfloat.setOnClickListener(this);
         tfloat.setOnClickListener(this);
         ufloat.setOnClickListener(this);
+        nfloat.setOnClickListener(this);
 
     }
     private void loadingResources(){
@@ -73,6 +72,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         cfloat = findViewById(R.id.complexFlow);
         tfloat = findViewById(R.id.trixFlow);
         ufloat = findViewById(R.id.ufloat);
+        nfloat = findViewById(R.id.nfloat);
 
         t1Total = findViewById(R.id.team1Total);
         t2Total = findViewById(R.id.team2Total);
@@ -80,6 +80,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         trixname = findViewById(R.id.trixName);
         complexname = findViewById(R.id.complexName);
         undo = findViewById(R.id.undo);
+        newgame = findViewById(R.id.newGame);
 
 
         scores = findViewById(R.id.ScoresList);
@@ -98,27 +99,14 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
         switch (id){
             case R.id.mFlow:
-                if(counter < 8){
-
                     animateFAB();
-                }
-                else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage(R.string.newgame)
-                            .setCancelable(false)
-                            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startActivity(new Intent(ScoresActivity.this,ScoresActivity.class));
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                   finish();
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
+
+                if(scores.getChildCount() ==11) {
+                    cfloat.setClickable(false);
+                    tfloat.setClickable(false);
+                    nfloat.setVisibility(View.VISIBLE);
+                    newgame.setVisibility(View.VISIBLE);
+
                 }
 
                 break;
@@ -133,39 +121,42 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 animateFAB();
                 break;
             case R.id.ufloat:
-                int index =scores.getChildCount()-1;
-                if(index>0){
-                    int childId = scores.getChildAt(index).getId();
-                    if(childId == R.id.divider){
-                        scores.removeViewAt(index);
-                        scores.removeViewAt(index-1);
-                        counter--;
-                        counter--;
-                    }else{
+                tfloat.setClickable(true);
+                cfloat.setClickable(true);
+                nfloat.setVisibility(View.GONE);
+                newgame.setVisibility(View.GONE);
+                    int index =scores.getChildCount()-1;
+                    if(index>0){
+                        int childId = scores.getChildAt(index).getId();
+                        if(childId == R.id.divider){
+                            scores.removeViewAt(index);
+                            scores.removeViewAt(index-1);
+                            counter--;
+                        }else{
 
-                        scores.removeViewAt(index);
-                        counter--;
+                            scores.removeViewAt(index);
+                            counter--;
+                        }
+                        total-=curruntScore;
+                        t1Total.setText(String.valueOf(total));
+                        if(curruntScore >0){
+                            int t2s = Integer.valueOf(t2Total.getText().toString())-(500-curruntScore);
+                            t2Total.setText(String.valueOf(t2s));
+                            prevScores.remove(prevScores.size()-1);
+                            curruntScore = prevScores.get(prevScores.size()-1);
+                        }else{
+                            int t2s = Integer.valueOf(t2Total.getText().toString())-(-500-curruntScore);
+                            t2Total.setText(String.valueOf(t2s));
+                            prevScores.remove(prevScores.size()-1);
+                            curruntScore = prevScores.get(prevScores.size()-1);
+                        }
                     }
-                    total-=curruntScore;
-                    t1Total.setText(String.valueOf(total));
-//                        Log.d("arrayall", "onClick: array"+prevScores);
-                    if(curruntScore >0){
-                        int t2s = Integer.valueOf(t2Total.getText().toString())-(500-curruntScore);
-                        t2Total.setText(String.valueOf(t2s));
-                        prevScores.remove(prevScores.size()-1);
-                        curruntScore = prevScores.get(prevScores.size()-1);
-//                        Log.d("newCurrent", "onClick: new current"+curruntScore);
-//                        Log.d("newarray", "onClick: new array "+prevScores);
-                    }else{
-                        int t2s = Integer.valueOf(t2Total.getText().toString())-(-500-curruntScore);
-                        t2Total.setText(String.valueOf(t2s));
-                        prevScores.remove(prevScores.size()-1);
-                        curruntScore = prevScores.get(prevScores.size()-1);
-//                        Log.d("newCurrent", "onClick: new current"+curruntScore);
-//                        Log.d("newarray", "onClick: new array "+prevScores);
-                    }
-                }
+
+
                 break;
+            case R.id.nfloat:
+                startActivity(new Intent(this,ScoresActivity.class));
+                finish();
         }
     }
 
@@ -190,9 +181,9 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             complexname.setVisibility(View.GONE);
             undo.setVisibility(View.GONE);
 
-            cfloat.setClickable(false);
-            tfloat.setClickable(false);
-            ufloat.setClickable(false);
+//            cfloat.setClickable(false);
+//            tfloat.setClickable(false);
+//            ufloat.setClickable(false);
 
         }else{
             mfloat.startAnimation(rotate_forward);
@@ -213,9 +204,9 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 //            tfloat.startAnimation(fab_open);
 //            ufloat.startAnimation(fab_close);
 
-            cfloat.setClickable(true);
-            tfloat.setClickable(true);
-            ufloat.setClickable(true);
+//            cfloat.setClickable(true);
+//            tfloat.setClickable(true);
+//            ufloat.setClickable(true);
         }
 
         isFabOpen = !isFabOpen;
@@ -258,7 +249,6 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
         if(requestCode == REQUEST_CODE_TRIX){
             if(resultCode==RESULT_OK){
-
                 curruntScore = data.getIntExtra("team1Score",-1);
                 total+=curruntScore;
                 prevScores.add(curruntScore);
@@ -267,6 +257,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 t2.setText(String.valueOf(500-curruntScore));
                 scores.addView(row);
                 counter++;
+                Log.d("counter" , "onActivityResult: counter "+counter);
                 if(counter % 2 == 0){
 
                     t1Total.setText(String.valueOf(total));
@@ -310,8 +301,9 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onResume() {
         super.onResume();
-        if (prefs.getBoolean("firstrun", true)) {
 
+
+        if (prefs.getBoolean("firstrun", true)) {
             TapTargetView.showFor(this,
                     TapTarget.forView(findViewById(R.id.mFlow),
                             "Press the button to choose a game")
@@ -324,5 +316,28 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             prefs.edit().putBoolean("firstrun", false).apply();
         }
     }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_scores, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.newGame) {
+//            startActivity(new Intent(this,ScoresActivity.class));
+//            finish();
+//            return true;
+//        }else if(id == R.id.about){
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
 //todo: add a way to remove last entry from scores and decrease the counter by 1

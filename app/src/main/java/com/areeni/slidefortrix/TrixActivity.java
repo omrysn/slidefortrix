@@ -141,15 +141,17 @@ public class TrixActivity extends AppCompatActivity {
                     .targets(
                             TapTarget
                                     .forView(findViewById(R.id.team1T),"This is your Score")
-                                    .targetRadius(70)
+                                    .targetRadius(30)
                                     .cancelable(false)
                                     .dimColor(R.color.black)
+                                    .transparentTarget(true)
                                     .drawShadow(true),
                             TapTarget
                                     .forView(findViewById(R.id.Tseek),"Move the seekbar to change the socre")
-                                    .targetRadius(70)
+                                    .targetRadius(30)
                                     .cancelable(false)
                                     .dimColor(R.color.black)
+                                    .transparentTarget(true)
                                     .drawShadow(true),
                             TapTarget
                                     .forView(findViewById(R.id.TrixImage),"Tap the image when done to move to the next game")
