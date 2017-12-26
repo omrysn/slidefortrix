@@ -22,5 +22,9 @@
     <string name="letsgo">Let\'s Go!</string>
     <string name="undo">Undo</string>
 
+    <string name="kingIcon" translatable="false">King icon made by <a href="https://www.flaticon.com/authors/eucalyp">
+        Eucalyp </a>from <a href="www.flaticon.com">www.flaticon.com</a></string>
 
+    <string name="OtherIcons" translatable="false">Other icons made by
+        <a href="https://www.flaticon.com/authors/freepik">Freepik </a>from <a href="www.flaticon.com">www.flaticon.com</a></string>
 </resources>

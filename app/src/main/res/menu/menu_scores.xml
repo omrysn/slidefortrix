@@ -13,7 +13,7 @@
         android:textAlignment="gravity"/>
 
     <item
-        android:id="@+id/about"
+        android:id="@+id/kingIcon"
         android:orderInCategory="300"
         android:title="@string/about"
         app:showAsAction="never"
