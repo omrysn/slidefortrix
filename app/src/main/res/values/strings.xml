@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Slide for Trix</string>
+    <string name="trix" translatable="false">T</string>
+    <string name="complex" translatable="false">C</string>
+    <string name="team1">My Team</string>
+    <string name="team2">Enemies</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="trixname">Trix</string>
+    <string name="complexname">Complex</string>
+    <string name="newgame">New Game</string>
+    <string name="doubled">Doubled</string>
+    <string name="about">About..</string>
+    <string name="english">English</string>
+    <string name="arabic">arabic</string>
+    <string name="language">Language</string>
+    <string name="chooseLanguage">Choose Language</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="singles">Singles</string>
+    <string name="partners">Partners</string>
+    <string name="letsgo">Let\'s Go!</string>
+    <string name="undo">Undo</string>
+
+
+</resources>

@@ -137,5 +137,5 @@ fabric.properties
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-# remove strings.xml
-app/src/main/res/values/strings.xml
+# remove adids.xml
+app/src/main/res/values/adids.xml
