@@ -42,18 +42,20 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/mFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_hearts" />
+        app:srcCompat="@drawable/ic_complex_white" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/mFlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
+        android:visibility="visible"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_24dp" />
+        app:srcCompat="@drawable/ic_add_white_vector_24dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/trixFlow"
@@ -66,7 +68,7 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/complexFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_trix" />
+        app:srcCompat="@drawable/ic_trix_white" />
 
     <LinearLayout
         android:id="@+id/ScoresList"
@@ -90,7 +92,7 @@
         android:minEms="3"
         android:text="@string/zero"
         android:textAlignment="textStart"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/team1"
@@ -106,7 +108,7 @@
         android:minEms="3"
         android:text="@string/zero"
         android:textAlignment="textEnd"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/red"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/team2"
@@ -149,6 +151,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:visibility="visible"
         ads:adSize="BANNER"
         ads:adUnitId="@string/BannerID"
         ads:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +169,7 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/trixFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_undo_24dp" />
+        app:srcCompat="@drawable/ic_undo_vector_24dp" />
 
     <TextView
         android:id="@+id/undo"
@@ -194,7 +197,7 @@
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/ufloat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_red_24dp" />
+        app:srcCompat="@drawable/ic_add_white_vector_24dp" />
 
     <TextView
         android:id="@+id/newGame"
