@@ -1,12 +1,15 @@
 package com.areeni.slidefortrix;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -34,6 +37,9 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
     private static final int REQUEST_CODE_COMPLEX = 1;
     private static final int REQUEST_CODE_TRIX = 2;
 
+    private final static String PLAYER_NAMES = "playerNames";
+
+
     private int total = 0;
 
     private int curruntScore =0;
@@ -41,7 +47,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
     private int counter =0;
     private TextView t2Total,t1Total,trixname,complexname,undo,newgame;
 
-    SharedPreferences prefs = null;
+    SharedPreferences prefs,teamNames = null;
 
     LinearLayout scores;
 
@@ -57,6 +63,12 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         mAdView.loadAd(adRequest);
 
         prefs = getSharedPreferences("com.areeni.slidefortrix", MODE_PRIVATE);
+        teamNames = getSharedPreferences(PLAYER_NAMES,MODE_PRIVATE);
+
+        TextView team1Name = findViewById(R.id.team1);
+        TextView team2Name = findViewById(R.id.team2);
+        team1Name.setText(teamNames.getString("myteam","team1"));
+        team2Name.setText(teamNames.getString("otherteam","team2"));
 
         loadingResources();
 
@@ -104,8 +116,6 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 if(scores.getChildCount() ==11) {
                     cfloat.setClickable(false);
                     tfloat.setClickable(false);
-                    nfloat.setVisibility(View.VISIBLE);
-                    newgame.setVisibility(View.VISIBLE);
 
                 }
 
@@ -123,8 +133,6 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.ufloat:
                 tfloat.setClickable(true);
                 cfloat.setClickable(true);
-                nfloat.setVisibility(View.GONE);
-                newgame.setVisibility(View.GONE);
                     int index =scores.getChildCount()-1;
                     if(index>0){
                         int childId = scores.getChildAt(index).getId();
@@ -155,8 +163,24 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
                 break;
             case R.id.nfloat:
-                startActivity(new Intent(this,ScoresActivity.class));
-                finish();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Are you sure you want to start a new game?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                startActivity(new Intent(ScoresActivity.this,ScoresActivity.class));
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+
         }
     }
 
@@ -176,10 +200,12 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             cfloat.setVisibility(View.GONE);
             tfloat.setVisibility(View.GONE);
             ufloat.setVisibility(View.GONE);
+            nfloat.setVisibility(View.GONE);
 
             trixname.setVisibility(View.GONE);
             complexname.setVisibility(View.GONE);
             undo.setVisibility(View.GONE);
+            newgame.setVisibility(View.GONE);
 
 //            cfloat.setClickable(false);
 //            tfloat.setClickable(false);
@@ -191,10 +217,12 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
             cfloat.setVisibility(View.VISIBLE);
             tfloat.setVisibility(View.VISIBLE);
             ufloat.setVisibility(View.VISIBLE);
+            nfloat.setVisibility(View.VISIBLE);
 
             trixname.setVisibility(View.VISIBLE);
             complexname.setVisibility(View.VISIBLE);
             undo.setVisibility(View.VISIBLE);
+            newgame.setVisibility(View.VISIBLE);
 
 //            trixname.startAnimation(fab_open);
 //            complexname.startAnimation(fab_open);
@@ -223,6 +251,13 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
         TextView game =row.findViewById(R.id.GameName);
         TextView t2 = row.findViewById(R.id.team2Score);
 
+        Log.d("test", "onActivityResult: childcount "+scores.getChildCount());
+
+        if(scores.getChildCount() == 7){
+
+            isOver();
+        }
+
         if(requestCode == REQUEST_CODE_COMPLEX){
             if(resultCode==RESULT_OK){
 
@@ -238,13 +273,14 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
                     t1Total.setText(String.valueOf(total));
                     t2Total.setText(String.valueOf(-total));
+
                 }else{
                     t1Total.setText(String.valueOf(total));
                     t2Total.setText(String.valueOf(-500-total));
                 }
 
             }
-
+            setcolor();
         }
 
         if(requestCode == REQUEST_CODE_TRIX){
@@ -262,13 +298,14 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 
                     t1Total.setText(String.valueOf(total));
                     t2Total.setText(String.valueOf(-total));
+
                 }else{
                     t1Total.setText(String.valueOf(total));
                     t2Total.setText(String.valueOf(500-total));
                 }
 
             }
-
+            setcolor();
         }
         switch (scores.getChildCount()){
             case 2:
@@ -339,5 +376,41 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+
+    private void setcolor(){
+        int t1=0,t2=0;
+
+        t1 = Integer.valueOf(t1Total.getText().toString());
+        t2 = Integer.valueOf(t2Total.getText().toString());
+
+        if(t1 >= t2){
+            t1Total.setTextColor(getResources().getColor(R.color.colorPrimary));
+            t2Total.setTextColor(getResources().getColor(R.color.red));
+        }else{
+            t1Total.setTextColor(getResources().getColor(R.color.red));
+            t2Total.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }
+    }
+
+    private void isOver(){
+        int t1=0,t2=0;
+
+        t1 = Integer.valueOf(t1Total.getText().toString());
+        t2 = Integer.valueOf(t2Total.getText().toString());
+
+        if(t1-t2>1050){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Game Over!, Too easy!");
+            AlertDialog dialog = builder.show();
+            TextView messageView = dialog.findViewById(android.R.id.message);
+            messageView.setGravity(Gravity.CENTER);
+        }else if(t2-t1>1050){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Uh Oh!, Good luck next time!");
+            AlertDialog dialog = builder.show();
+            TextView messageView = dialog.findViewById(android.R.id.message);
+            messageView.setGravity(Gravity.CENTER);
+        }
+    }
 }
 //todo: add a way to remove last entry from scores and decrease the counter by 1

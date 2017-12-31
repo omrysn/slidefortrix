@@ -14,7 +14,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/anton"
-        android:text="@string/team1"
+        android:text="team1 "
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/anton"
-        android:text="@string/team2"
+        android:text="team2 "
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

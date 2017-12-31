@@ -3,8 +3,8 @@
     <string name="app_name">Slide for Trix</string>
     <string name="trix" translatable="false">T</string>
     <string name="complex" translatable="false">C</string>
-    <string name="team1">My Team</string>
-    <string name="team2">Enemies</string>
+    <string name="team1">Your Team\'s Name</string>
+    <string name="team2">Other Team\'s Name</string>
     <string name="zero" translatable="false">0</string>
     <string name="trixname">Trix</string>
     <string name="complexname">Complex</string>

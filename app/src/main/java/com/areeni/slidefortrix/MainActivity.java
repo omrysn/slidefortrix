@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        AdRequest adRequest = new AdRequest.Builder().build();
 //        mAdView.loadAd(adRequest);
 
-        Button newg = findViewById(R.id.newGame);
+        Button newg = findViewById(R.id.partnersButton);
 
         newg.setOnClickListener(this);
     }
@@ -45,9 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         switch (id){
-            case R.id.newGame:
-                Intent intent = new Intent(this,ScoresActivity.class);
-                startActivity(intent);
+            case R.id.partnersButton:
+                startActivity(new Intent(this,TeamNamesActivity.class));
                 finish();
                 break;
         }

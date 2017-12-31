@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="locale|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,17 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScoresActivity"
+        <activity
+            android:name=".ScoresActivity"
             android:configChanges="locale|orientation|screenSize" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ComplexActivity"
-            android:configChanges="locale|orientation|screenSize"/>
-        <activity android:name=".TrixActivity"
-            android:configChanges="locale|orientation|screenSize"/>
+        <activity
+            android:name=".ComplexActivity"
+            android:configChanges="locale|orientation|screenSize" />
+        <activity
+            android:name=".TrixActivity"
+            android:configChanges="locale|orientation|screenSize" />
+        <activity android:name=".TeamNamesActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

@@ -7,14 +7,14 @@
     tools:context="com.areeni.slidefortrix.MainActivity">
 
     <Button
-        android:id="@+id/newGame"
+        android:id="@+id/partnersButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:text="@string/newgame"
+        android:text="@string/partners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
