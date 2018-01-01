@@ -168,7 +168,7 @@ public class ScoresActivity extends AppCompatActivity implements View.OnClickLis
                 builder.setMessage("Are you sure you want to start a new game?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                startActivity(new Intent(ScoresActivity.this,ScoresActivity.class));
+                                startActivity(new Intent(ScoresActivity.this,TeamNamesActivity.class));
                                 finish();
                             }
                         })

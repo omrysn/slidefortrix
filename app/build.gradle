@@ -6,7 +6,7 @@ android {
         applicationId "com.areeni.slidefortrix"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 4
+        versionCode 5
         versionName "0.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

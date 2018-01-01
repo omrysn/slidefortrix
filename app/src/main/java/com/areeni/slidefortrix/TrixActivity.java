@@ -14,11 +14,17 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import org.w3c.dom.Text;
+
 public class TrixActivity extends AppCompatActivity {
     private int trix;
     private boolean isScored = false;
-    SharedPreferences prefs = null;
+    SharedPreferences prefs , names = null;
     private AdView mAdView;
+
+    private final static String PLAYER_NAMES = "playerNames";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +37,15 @@ public class TrixActivity extends AppCompatActivity {
         SeekBar seek = findViewById(R.id.Tseek);
 
         prefs = getSharedPreferences("com.areeni.slidefortrix", MODE_PRIVATE);
+
+        names = getSharedPreferences(PLAYER_NAMES,MODE_PRIVATE);
+
+        TextView t1name = findViewById(R.id.team1Name);
+        TextView t2name = findViewById(R.id.team2Name);
+
+        t1name.setText(names.getString("myteam",null));
+        t2name.setText(names.getString("otherteam",null));
+
 
         final TextView t1t = findViewById(R.id.team1T);
         final TextView t2t = findViewById(R.id.team2T);
